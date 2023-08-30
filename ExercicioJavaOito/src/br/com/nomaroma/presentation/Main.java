@@ -46,10 +46,10 @@ public class Main {
 		//imprimirClientesComPoupanca();
 		
 		//6:
-        //System.out.println(getEstadoClientes(25));
+        	//System.out.println(getEstadoClientes(25));
 		
 		//7:
-        //System.out.println(getNumerosContas("Brazil"));
+        	//System.out.println(getNumerosContas("Brazil"));
 		
 		//8:
 	   	//System.out.println(getMaiorSaldo("client39@bank.com"));
@@ -61,20 +61,19 @@ public class Main {
 		//depositar("Brazil",200);
 		
 		//11:
-		/*transferir(198, 576, 594, 200);*/
+		//transferir(198, 576, 594, 200);
 		
 		//13:
-		/*System.out.println(getSomaContasEstado("State 6"));*/
+		//System.out.println(getSomaContasEstado("State 6"));
 		
 		//14:
-		/*System.out.println(getEmailsClientesContasConjuntas());*/
+		//System.out.println(getEmailsClientesContasConjuntas());
 		
 		//15:
-		/*System.out.println(isPrimo(3));*/
+		//System.out.println(isPrimo(3));
 		
 		//16:
-		/*System.out.println(getFatorial(7));*/
-		
+		//System.out.println(getFatorial(7));
 	}
 	
 	/**
@@ -361,9 +360,10 @@ public class Main {
 	 * @return Retorna se o n�mero � primo ou n�o
 	 */
 	public static boolean isPrimo(int number) {
-		throw new UnsupportedOperationException();
+		return IntStream.range(2, number).noneMatch(i -> number % i == 0);
+		
+		//throw new UnsupportedOperationException();
 	}
-	
 	
 	/**
 	 * 16.
@@ -371,6 +371,8 @@ public class Main {
 	 * @return Retorna o fatorial do n�mero
 	 */
 	public static int getFatorial(int number) {
-		throw new UnsupportedOperationException();
+		return IntStream.rangeClosed(2, number).reduce(1,(x, y) -> x * y);
+		
+		//throw new UnsupportedOperationException();
 	}
 }

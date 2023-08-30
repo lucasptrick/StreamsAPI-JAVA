@@ -1,7 +1,6 @@
 # Streams
 Execício de introdução ao paradigma de programação funcional. Surgida após atualização da versão da linguagem Java. 
-
->> Streams no Java8 são uma parte poderosa e fundamental da biblioteca. Eles permitem manipular sequências de elementos de forma declarativa e concisa. Eles fornecem uma abstração de alto nível que permite procesar e operar em dados de maneira semelhante a ppelines de processamento.
+Streams no Java8 são uma parte poderosa e fundamental da biblioteca. Eles permitem manipular sequências de elementos de forma declarativa e concisa. Eles fornecem uma abstração de alto nível que permite procesar e operar em dados de maneira semelhante a ppelines de processamento.
 
 >> Principais características das Streams do Java 8:
 *Processamento Declarativo:* Com Streams, você pode expressar operações de processamento de dados de forma declarativa, descrevendo o que deseja fazer com os dados, em vez de como fazê-lo. Isso leva a um código mais limpo e legível.

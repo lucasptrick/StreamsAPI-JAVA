@@ -313,7 +313,16 @@ public class Main {
 	 * @return Retorna uma lista com todas as contas conjuntas (JOINT) dos clientes
 	 */
 	public static List<Account> getContasConjuntas(List<Client> clients) {
-		throw new UnsupportedOperationException();
+		List<Account> l = new ArrayList<Account>();
+		clients
+			.stream()
+			.map(c -> c.getAccounts())
+			.map(listas -> listas.stream()
+					.filter(acc -> acc.getType()==AccountEnum.JOINT)
+					.collect(Collectors.toList()))
+			.forEach(l::addAll);
+		return l;	
+		//throw new UnsupportedOperationException();
 	}
 	
 	/**
@@ -322,7 +331,12 @@ public class Main {
 	 * @return Retorna uma lista com o somat�rio dos saldos de todas as contas do estado 
 	 */
 	public static double getSomaContasEstado(String state) {
-		throw new UnsupportedOperationException();
+		return service
+		 	.listAccounts()
+		 	.stream()
+		 	.filter(a -> a.getClient().getAddress().getState().equals(state))
+		 	.mapToDouble(cnt -> cnt.getBalance()).sum();
+		//throw new UnsupportedOperationException();
 	}
 	
 	/**
@@ -330,7 +344,15 @@ public class Main {
 	 * @return Retorna um array com os e-mails de todos os clientes que possuem contas conjuntas
 	 */
 	public static String[] getEmailsClientesContasConjuntas() {
-		throw new UnsupportedOperationException();
+		return service 
+			.listAccounts()
+			.stream()
+			.filter(a -> a.getType().equals(AccountEnum.JOINT))
+			.map(cliente -> cliente.getClient().getEmail())
+			.collect(Collectors.toList())
+			.toArray(new String[0]);
+		
+		//throw new UnsupportedOperationException();		
 	}
 	
 	/**

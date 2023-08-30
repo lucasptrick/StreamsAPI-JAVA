@@ -287,6 +287,24 @@ public class Main {
 	 * @param value - valor da transfer�ncia
 	 */
 	public static void transferir(int agency, int numberSource, int numberTarget, double value) {
+		Account contaOrigem = service.listAccounts().stream()
+		    .filter(contaO -> contaO.getAgency()==agency && contaO.getNumber()==numberSource)
+		    .findFirst().orElse(null);
+		    
+		    
+		    Account contaTransferencia = service.listAccounts().stream()
+		    .filter(contaT -> contaT.getNumber() == numberSource)
+		    .findAny().orElse(null);
+		    
+            	if(contaOrigem != null && contaTransferencia != null) {
+            		
+            		contaOrigem.setBalance(contaOrigem.getBalance() - value);
+	            	contaTransferencia.setBalance(contaTransferencia.getBalance()+ value);
+	            	System.out.println("Transferencia Realizada no valor de R$"+value);
+	            	
+            	}else {
+            		System.out.println("Transferencia não realizada!");
+            	}
 	}
 	
 	/**
